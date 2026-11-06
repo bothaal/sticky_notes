@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{ note.title }} - Sticky Notes{% endblock %}
+
+{% block content %}
+  <div class="card shadow-sm sticky-note">
+    <div class="card-body">
+      <h1 class="h3 card-title">{{ note.title }}</h1>
+      <p class="card-text">{{ note.content|linebreaksbr }}</p>
+      <p class="small text-muted mb-0">
+        Created {{ note.created_at|date:"d M Y, H:i" }} &middot;
+        Updated {{ note.updated_at|date:"d M Y, H:i" }}
+      </p>
+    </div>
+    <div class="card-footer bg-transparent d-flex gap-2">
+      <a class="btn btn-outline-primary btn-sm" href="{% url 'note_update' note.pk %}">Edit</a>
+      <a class="btn btn-outline-danger btn-sm" href="{% url 'note_delete' note.pk %}">Delete</a>
+      <a class="btn btn-link btn-sm ms-auto" href="{% url 'note_list' %}">Back to notes</a>
+    </div>
+  </div>
+{% endblock %}

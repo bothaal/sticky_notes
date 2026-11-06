@@ -1,0 +1,27 @@
+# Python bytecode and tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local virtual environments and secrets
+venv/
+.venv/
+.env
+.env.*
+!.env.example
+
+# Local Django databases and collected static files
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-wal
+*.sqlite3-shm
+/staticfiles/
+
+# Generated project archive
+/sticky_notes.zip
+notes/tests-c.txt

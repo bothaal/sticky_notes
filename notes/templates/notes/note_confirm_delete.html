@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Delete Note - Sticky Notes{% endblock %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm border-danger">
+        <div class="card-body">
+          <h1 class="h4 card-title">Delete this note?</h1>
+          <p class="card-text">"<strong>{{ note.title }}</strong>" will be permanently deleted.</p>
+          <form method="post" class="d-flex gap-2">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Yes, delete</button>
+            <a class="btn btn-secondary" href="{% url 'note_detail' note.pk %}">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

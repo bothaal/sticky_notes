@@ -1,0 +1,18 @@
+/* Sticky-note look for note cards and the detail view */
+.sticky-note {
+  background-color: #fff9c4;
+  border: 1px solid #f0e68c;
+  border-radius: 0.5rem;
+}
+
+.sticky-note .card-title a {
+  color: #333;
+}
+
+/* Clamp note previews to three lines in the list view */
+.text-truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

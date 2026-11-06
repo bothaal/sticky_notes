@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}My Notes - Sticky Notes{% endblock %}
+
+{% block content %}
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 mb-0">My Notes</h1>
+    <a class="btn btn-primary" href="{% url 'note_create' %}">New Note</a>
+  </div>
+
+  {% if notes %}
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+      {% for note in notes %}
+        <div class="col">
+          <div class="card h-100 shadow-sm sticky-note">
+            <div class="card-body">
+              <h2 class="h5 card-title">
+                <a class="text-decoration-none" href="{% url 'note_detail' note.pk %}">{{ note.title }}</a>
+              </h2>
+              <p class="card-text text-truncate-3">{{ note.content|truncatechars:150 }}</p>
+            </div>
+            <div class="card-footer bg-transparent border-0 small text-muted">
+              Updated {{ note.updated_at|date:"d M Y, H:i" }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="alert alert-info">You have no notes yet. Create your first one.</div>
+  {% endif %}
+{% endblock %}
